@@ -26,6 +26,19 @@ namespace SingleResponsibilityPrinciple.Tests
                 return count;
             }
         }
+        [TestMethod]
+        public void TestTradeWithTooFewValues()
+        {
+            var tradeStream = new MemoryStream(Encoding.UTF8.GetBytes("GBPUSD,1000"));
+            var tradeProcessor = new TradeProcessor();
+
+            int countBefore = CountDbRecords();
+            tradeProcessor.ProcessTrades(tradeStream);
+            int countAfter = CountDbRecords();
+
+            Assert.AreEqual(countBefore, countAfter);  // No trade should be added to the database
+        }
+
 
         [TestMethod()]
         public void TestNormalFile()
