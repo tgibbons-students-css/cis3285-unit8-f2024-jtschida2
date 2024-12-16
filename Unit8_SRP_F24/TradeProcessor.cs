@@ -121,7 +121,7 @@ namespace SingleResponsibilityPrinciple
             //    The @ sign allows for back slashes
             //    Watch for double quotes which must be escaped using "" 
             //    Watch for extra spaces after C: and avoid paths with - hyphens -
-            string genericConnectString = @"Data Source=(local);Initial Catalog=TradeDatabase;Integrated Security=True;";
+            string genericConnectString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Normies\OneDrive\Documents\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30";
             // The datadirConnectString connection string uses |DataDirectory| 
             //    and assumes the tradedatabase.mdf file is stored in 
             //    SingleResponsibilityPrinciple\bin\Debug 
