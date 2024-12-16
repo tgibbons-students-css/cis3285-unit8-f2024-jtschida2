@@ -33,11 +33,11 @@ namespace SingleResponsibilityPrinciple
         /// <param name="fields"> The string must be split into three components before calling </param>
         /// <param name="currentLine"> This is the current line number in the file, used to report errors</param>
         /// <returns> true if all the checks pass </returns>
-        private bool ValidateTradeData(String[] fields, int currentLine)
+        private bool ValidateTradeData(string[] fields, int currentLine)
         {
             if (fields.Length != 3)
             {
-                LogMessage("WARN: Line {0} malformed. Only {1} field(s) found.", currentLine, fields.Length);
+                LogMessage("WARN: Line {0} malformed. Expected 3 fields but found {1}.", currentLine, fields.Length);
                 return false;
             }
 
@@ -60,8 +60,10 @@ namespace SingleResponsibilityPrinciple
                 LogMessage("WARN: Trade price on line {0} not a valid decimal: '{1}'", currentLine, fields[2]);
                 return false;
             }
+
             return true;
         }
+
 
         /// <summary>
         /// Converts a string containing the trade data into a TradeRecord object
